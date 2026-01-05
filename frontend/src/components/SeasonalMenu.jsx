@@ -1,9 +1,38 @@
-import React, { useState } from 'react';
-import { Download } from 'lucide-react';
-import { menuCategories } from '../data/mock';
+import React, { useState, useEffect } from 'react';
+import { Download, Loader2 } from 'lucide-react';
+import { menuCategories as mockCategories } from '../data/mock';
+import { getMenuCategories } from '../services/api';
 
 const SeasonalMenu = () => {
   const [activeCategory, setActiveCategory] = useState(0);
+  const [menuCategories, setMenuCategories] = useState(mockCategories);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchMenu = async () => {
+      try {
+        const data = await getMenuCategories();
+        if (data && data.length > 0) {
+          // Transform API data to match our format
+          const formattedCategories = data.map(cat => ({
+            name: cat.name,
+            items: cat.items.map(item => ({
+              name: item.name,
+              description: item.description,
+              price: item.price
+            }))
+          }));
+          setMenuCategories(formattedCategories);
+        }
+      } catch (error) {
+        console.error('Error fetching menu, using mock data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMenu();
+  }, []);
 
   return (
     <section id="menu" className="py-24 bg-cream relative overflow-hidden">
