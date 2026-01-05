@@ -1,53 +1,90 @@
-import { useEffect } from "react";
-import "@/App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
+import React, { useEffect, useRef } from 'react';
+import { ThemeProvider, useTheme } from './contexts/ThemeContext';
+import Navbar from './components/Navbar';
+import HeroSection from './components/HeroSection';
+import SignatureDishes from './components/SignatureDishes';
+import ExperienceSection from './components/ExperienceSection';
+import SeasonalMenu from './components/SeasonalMenu';
+import LocationSection from './components/LocationSection';
+import GallerySection from './components/GallerySection';
+import ReservationsSection from './components/ReservationsSection';
+import TestimonialsSection from './components/TestimonialsSection';
+import CTASection from './components/CTASection';
+import WeatherWidget from './components/WeatherWidget';
+import Footer from './components/Footer';
+import SnowParticles from './components/SnowParticles';
+import './App.css';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
-
-const Home = () => {
-  const helloWorldApi = async () => {
-    try {
-      const response = await axios.get(`${API}/`);
-      console.log(response.data.message);
-    } catch (e) {
-      console.error(e, `errored out requesting / api`);
-    }
-  };
+// Ambient Sound Component
+const AmbientSound = () => {
+  const audioRef = useRef(null);
+  const { soundEnabled, season } = useTheme();
 
   useEffect(() => {
-    helloWorldApi();
-  }, []);
+    if (audioRef.current) {
+      if (soundEnabled) {
+        audioRef.current.play().catch(() => {
+          // Autoplay blocked, user interaction required
+        });
+      } else {
+        audioRef.current.pause();
+      }
+    }
+  }, [soundEnabled]);
 
+  // Using a simple tone for demo - in production, use actual audio files
   return (
-    <div>
-      <header className="App-header">
-        <a
-          className="App-link"
-          href="https://emergent.sh"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://avatars.githubusercontent.com/in/1201222?s=120&u=2686cf91179bbafbc7a71bfbc43004cf9ae1acea&v=4" />
-        </a>
-        <p className="mt-5">Building something incredible ~!</p>
-      </header>
+    <audio
+      ref={audioRef}
+      loop
+      volume={0.3}
+      src={season === 'winter' 
+        ? 'https://assets.mixkit.co/sfx/preview/mixkit-fireplace-ambience-1507.mp3'
+        : 'https://assets.mixkit.co/sfx/preview/mixkit-forest-birds-ambience-1210.mp3'
+      }
+    />
+  );
+};
+
+const AppContent = () => {
+  return (
+    <div className="relative overflow-x-hidden">
+      {/* Snow/Particle Effects */}
+      <SnowParticles />
+      
+      {/* Ambient Sound */}
+      <AmbientSound />
+      
+      {/* Navigation */}
+      <Navbar />
+      
+      {/* Main Content */}
+      <main>
+        <HeroSection />
+        <SignatureDishes />
+        <ExperienceSection />
+        <SeasonalMenu />
+        <LocationSection />
+        <GallerySection />
+        <ReservationsSection />
+        <TestimonialsSection />
+        <CTASection />
+      </main>
+      
+      {/* Footer */}
+      <Footer />
+      
+      {/* Weather Widget */}
+      <WeatherWidget />
     </div>
   );
 };
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}>
-            <Route index element={<Home />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 }
 
