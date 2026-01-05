@@ -1,8 +1,37 @@
-import React, { useState } from 'react';
-import { signatureDishes } from '../data/mock';
+import React, { useState, useEffect } from 'react';
+import { signatureDishes as mockDishes } from '../data/mock';
+import { getSignatureDishes } from '../services/api';
 
 const SignatureDishes = () => {
   const [hoveredDish, setHoveredDish] = useState(null);
+  const [dishes, setDishes] = useState(mockDishes);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchDishes = async () => {
+      try {
+        const data = await getSignatureDishes();
+        if (data && data.length > 0) {
+          // Transform API data to match our format
+          const formattedDishes = data.map(dish => ({
+            id: dish.id,
+            name: dish.name,
+            description: dish.description,
+            price: dish.price,
+            image: dish.image || mockDishes[0]?.image
+          }));
+          setDishes(formattedDishes);
+        }
+      } catch (error) {
+        console.error('Error fetching dishes, using mock data:', error);
+        // Keep mock data on error
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchDishes();
+  }, []);
 
   return (
     <section id="dishes" className="py-24 bg-cream relative overflow-hidden">
