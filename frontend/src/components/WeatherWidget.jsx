@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Cloud, Snowflake, Mountain, Wind, Eye, ChevronDown } from 'lucide-react';
-import { weatherData } from '../data/mock';
+import { weatherData as mockWeather } from '../data/mock';
+import { getWeather } from '../services/api';
 
 const WeatherWidget = () => {
-  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [weatherData, setWeatherData] = useState(mockWeather);
+
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        const data = await getWeather();
+        if (data) {
+          setWeatherData({
+            temperature: data.temperature,
+            condition: data.condition,
+            snowDepth: data.snow_depth,
+            slopeStatus: data.slope_status,
+            visibility: data.visibility,
+            wind: data.wind
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching weather, using mock data:', error);
+      }
+    };
+
+    fetchWeather();
+    // Refresh weather every 5 minutes
+    const interval = setInterval(fetchWeather, 5 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="fixed bottom-6 left-6 z-40">
