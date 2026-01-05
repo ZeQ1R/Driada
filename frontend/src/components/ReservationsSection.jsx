@@ -99,12 +99,31 @@ const ReservationsSection = () => {
               <h3 className="font-serif text-2xl font-bold text-cream mb-3">
                 Reservation Confirmed!
               </h3>
-              <p className="text-cream/80">
-                We've sent a confirmation to your email. See you soon!
+              <p className="text-cream/80 mb-4">
+                {confirmationData?.message || "We've sent a confirmation to your email. See you soon!"}
               </p>
+              {confirmationData && (
+                <div className="bg-white/10 rounded-xl p-4 inline-block">
+                  <p className="text-cream/90 text-sm">
+                    <span className="font-semibold">Confirmation ID:</span> {confirmationData.id?.slice(0, 8)}...
+                  </p>
+                  <p className="text-cream/90 text-sm">
+                    <span className="font-semibold">Date:</span> {confirmationData.date} at {confirmationData.time}
+                  </p>
+                  <p className="text-cream/90 text-sm">
+                    <span className="font-semibold">Party size:</span> {confirmationData.guests} guests
+                  </p>
+                </div>
+              )}
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
+              {error && (
+                <div className="bg-red-500/20 border border-red-500/50 rounded-xl p-4 flex items-center gap-3">
+                  <AlertCircle className="text-red-400" size={20} />
+                  <p className="text-red-300">{error}</p>
+                </div>
+              )}
               {/* Name & Email Row */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
