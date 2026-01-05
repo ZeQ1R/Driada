@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, Users, MessageSquare, CheckCircle } from 'lucide-react';
+import { Calendar, Clock, Users, MessageSquare, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { heroImages } from '../data/mock';
+import { createReservation } from '../services/api';
 
 const ReservationsSection = () => {
   const [formData, setFormData] = useState({
@@ -13,30 +14,48 @@ const ReservationsSection = () => {
     specialRequests: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [confirmationData, setConfirmationData] = useState(null);
 
   const handleChange = (e) => {
     setFormData(prev => ({
       ...prev,
       [e.target.name]: e.target.value
     }));
+    setError(null);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mock submission
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        date: '',
-        time: '',
-        guests: '2',
-        specialRequests: ''
-      });
-    }, 3000);
+    setIsLoading(true);
+    setError(null);
+    
+    try {
+      const response = await createReservation(formData);
+      setConfirmationData(response);
+      setIsSubmitted(true);
+      
+      // Reset form after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setConfirmationData(null);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          date: '',
+          time: '',
+          guests: '2',
+          specialRequests: ''
+        });
+      }, 5000);
+    } catch (err) {
+      setError('Failed to create reservation. Please try again.');
+      console.error('Reservation error:', err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const timeSlots = [
