@@ -39,19 +39,21 @@ const WeatherWidget = () => {
         onClick={() => setIsExpanded(!isExpanded)}
         className="bg-[#1a3c34]/90 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-white/10 flex items-center gap-3 hover:bg-[#1a3c34] transition-colors group"
       >
-        <div className="flex items-center gap-2">
-          <Snowflake className="text-amber-400" size={20} />
-          <span className="text-cream font-bold text-lg">{weatherData.temperature}°C</span>
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            <Snowflake className="text-amber-400" size={20} />
+            <span className="text-cream font-bold text-lg">{weatherData.temperature}°C</span>
+          </div>
+          <div className="w-px h-6 bg-cream/20" />
+          <div className="flex items-center gap-2">
+            <Mountain className="text-cream/70" size={18} />
+            <span className="text-cream/80 text-sm">{weatherData.snowDepth}</span>
+          </div>
+          <ChevronDown 
+            className={`text-cream/70 transition-transform ${isExpanded ? 'rotate-180' : ''}`} 
+            size={18} 
+          />
         </div>
-        <div className="w-px h-6 bg-cream/20" />
-        <div className="flex items-center gap-2">
-          <Mountain className="text-cream/70" size={18} />
-          <span className="text-cream/80 text-sm">{weatherData.snowDepth}</span>
-        </div>
-        <ChevronDown 
-          className={`text-cream/70 transition-transform ${isExpanded ? 'rotate-180' : ''}`} 
-          size={18} 
-        />
       </button>
 
       {/* Expanded View */}
