@@ -56,7 +56,7 @@ const SignatureDishes = () => {
 
         {/* Dishes Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {signatureDishes.map((dish, index) => (
+          {dishes.map((dish, index) => (
             <div
               key={dish.id}
               className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 animate-fade-in-up"
