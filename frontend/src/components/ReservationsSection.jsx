@@ -247,9 +247,17 @@ const ReservationsSection = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-amber-400 hover:bg-amber-500 text-[#1a3c34] font-bold py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-amber-400/30 text-lg"
+                disabled={isLoading}
+                className="w-full bg-amber-400 hover:bg-amber-500 text-[#1a3c34] font-bold py-4 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-amber-400/30 text-lg disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
-                Confirm Reservation
+                {isLoading ? (
+                  <>
+                    <Loader2 className="animate-spin" size={20} />
+                    Processing...
+                  </>
+                ) : (
+                  'Confirm Reservation'
+                )}
               </button>
 
               <p className="text-cream/60 text-sm text-center">
