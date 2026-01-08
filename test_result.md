@@ -183,4 +183,4 @@ test_plan:
 
 agent_communication:
   - agent: "testing"
-    message: "Completed comprehensive backend API testing. All 5 endpoints (health check, menu signature dishes, menu categories, reservations, weather) are working correctly. Backend URL https://peak-dining.preview.emergentagent.com is accessible and all APIs return expected responses with proper data structures. Database seeding is working correctly with 4 signature dishes and 19 total menu items across all categories. Reservation creation works with confirmed status. Weather API returns mock data as expected."
+    message: "Completed comprehensive backend API testing. All 5 endpoints (health check, menu signature dishes, menu categories, reservations, weather) are working correctly. Backend URL https://triple-translate-1.preview.emergentagent.com is accessible and all APIs return expected responses with proper data structures. Database seeding is working correctly with 4 signature dishes and 19 total menu items across all categories. Reservation creation works with confirmed status. Weather API returns mock data as expected."
