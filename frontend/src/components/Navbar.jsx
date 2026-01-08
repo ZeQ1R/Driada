@@ -29,8 +29,8 @@ const Navbar = () => {
 
   const languages = [
     { code: 'en', name: 'English' },
-    { code: 'de', name: 'Deutsch' },
-    { code: 'fr', name: 'Français' }
+    { code: 'sq', name: 'Shqip' },
+    { code: 'mk', name: 'Македонски' }
   ];
 
   const scrollToSection = (href) => {
