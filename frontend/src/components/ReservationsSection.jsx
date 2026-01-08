@@ -131,7 +131,7 @@ const ReservationsSection = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-cream/90 text-sm font-medium mb-2">
-                    Full Name *
+                    {t.reservations.form.fullName} *
                   </label>
                   <input
                     type="text"
@@ -140,12 +140,12 @@ const ReservationsSection = () => {
                     onChange={handleChange}
                     required
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-cream placeholder:text-cream/50 focus:outline-none focus:border-amber-400 transition-colors"
-                    placeholder="Your name"
+                    placeholder={t.reservations.form.placeholder.name}
                   />
                 </div>
                 <div>
                   <label className="block text-cream/90 text-sm font-medium mb-2">
-                    Email *
+                    {t.reservations.form.email} *
                   </label>
                   <input
                     type="email"
@@ -154,7 +154,7 @@ const ReservationsSection = () => {
                     onChange={handleChange}
                     required
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-cream placeholder:text-cream/50 focus:outline-none focus:border-amber-400 transition-colors"
-                    placeholder="your@email.com"
+                    placeholder={t.reservations.form.placeholder.email}
                   />
                 </div>
               </div>
@@ -162,7 +162,7 @@ const ReservationsSection = () => {
               {/* Phone */}
               <div>
                 <label className="block text-cream/90 text-sm font-medium mb-2">
-                  Phone Number
+                  {t.reservations.form.phone}
                 </label>
                 <input
                   type="tel"
@@ -170,7 +170,7 @@ const ReservationsSection = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-cream placeholder:text-cream/50 focus:outline-none focus:border-amber-400 transition-colors"
-                  placeholder="+1 (555) 123-4567"
+                  placeholder={t.reservations.form.placeholder.phone}
                 />
               </div>
 
