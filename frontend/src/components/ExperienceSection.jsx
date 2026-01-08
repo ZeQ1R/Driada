@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { experienceContent, galleryImages } from '../data/mock';
+import { galleryImages, translations } from '../data/mock';
+import { useTheme } from '../contexts/ThemeContext';
 
 const ExperienceSection = () => {
+  const { language } = useTheme();
+  const t = translations[language];
   const [currentSlide, setCurrentSlide] = useState(0);
   const interiorImages = galleryImages.filter(img => img.category === 'interior' || img.category === 'exterior');
 
