@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { signatureDishes as mockDishes } from '../data/mock';
+import { signatureDishes as mockDishes, translations } from '../data/mock';
 import { getSignatureDishes } from '../services/api';
+import { useTheme } from '../contexts/ThemeContext';
 
 const SignatureDishes = () => {
+  const { language } = useTheme();
+  const t = translations[language];
   const [hoveredDish, setHoveredDish] = useState(null);
   const [dishes, setDishes] = useState(mockDishes);
   const [loading, setLoading] = useState(true);
