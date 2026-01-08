@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Test the Driada Restaurant API backend with health check, menu API, reservations API, and weather API endpoints"
+user_problem_statement: "Implement multi-language support for the Driada Restaurant website with English, Albanian (Shqip), and Macedonian (Македонски) languages. All text throughout the website should change dynamically when a language is selected."
 
 backend:
   - task: "Health Check API"
