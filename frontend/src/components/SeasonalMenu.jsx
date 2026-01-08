@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Download, Loader2 } from 'lucide-react';
-import { menuCategories as mockCategories } from '../data/mock';
+import { menuCategories as mockCategories, translations } from '../data/mock';
 import { getMenuCategories } from '../services/api';
+import { useTheme } from '../contexts/ThemeContext';
 
 const SeasonalMenu = () => {
+  const { language } = useTheme();
+  const t = translations[language];
   const [activeCategory, setActiveCategory] = useState(0);
   const [menuCategories, setMenuCategories] = useState(mockCategories);
   const [loading, setLoading] = useState(true);
