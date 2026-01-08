@@ -68,19 +68,19 @@ const Footer = () => {
 
           {/* Opening Hours */}
           <div>
-            <h4 className="text-cream font-bold text-lg mb-6">Opening Hours</h4>
+            <h4 className="text-cream font-bold text-lg mb-6">{t.footer.openingHours}</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-cream/70">
                 <Clock className="text-amber-400 flex-shrink-0 mt-1" size={18} />
                 <div>
-                  <p className="font-medium text-cream">Monday - Friday</p>
+                  <p className="font-medium text-cream">{t.footer.weekdays}</p>
                   <p>{restaurantInfo.hours.weekdays}</p>
                 </div>
               </li>
               <li className="flex items-start gap-3 text-cream/70">
                 <Clock className="text-amber-400 flex-shrink-0 mt-1" size={18} />
                 <div>
-                  <p className="font-medium text-cream">Saturday - Sunday</p>
+                  <p className="font-medium text-cream">{t.footer.weekends}</p>
                   <p>{restaurantInfo.hours.weekends}</p>
                 </div>
               </li>
@@ -89,16 +89,22 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-cream font-bold text-lg mb-6">Quick Links</h4>
+            <h4 className="text-cream font-bold text-lg mb-6">{t.footer.quickLinks}</h4>
             <ul className="space-y-3">
-              {['Menu', 'Our Story', 'Gallery', 'Reservations', 'Private Events'].map((link) => (
-                <li key={link}>
+              {[
+                { key: 'menu', href: 'menu' },
+                { key: 'story', href: 'story' },
+                { key: 'gallery', href: 'gallery' },
+                { key: 'reservations', href: 'reservations' },
+                { key: 'privateEvents', href: 'private-events' }
+              ].map((link) => (
+                <li key={link.key}>
                   <a 
-                    href={`#${link.toLowerCase().replace(' ', '-')}`}
+                    href={`#${link.href}`}
                     className="text-cream/70 hover:text-amber-400 transition-colors inline-flex items-center gap-2 group"
                   >
                     <span className="w-0 h-px bg-amber-400 group-hover:w-4 transition-all duration-300" />
-                    {link}
+                    {t.footer.links[link.key]}
                   </a>
                 </li>
               ))}
