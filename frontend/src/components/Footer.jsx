@@ -118,14 +118,14 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-cream/50 text-sm">
-              © {currentYear} Driada Restaurant. All rights reserved.
+              © {currentYear} {t.footer.copyright}
             </p>
             <div className="flex gap-6">
               <a href="#" className="text-cream/50 hover:text-cream text-sm transition-colors">
-                Privacy Policy
+                {t.footer.privacy}
               </a>
               <a href="#" className="text-cream/50 hover:text-cream text-sm transition-colors">
-                Terms of Service
+                {t.footer.terms}
               </a>
             </div>
           </div>
