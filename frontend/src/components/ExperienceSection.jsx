@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { experienceContent, galleryImages } from '../data/mock';
+import { galleryImages, translations } from '../data/mock';
+import { useTheme } from '../contexts/ThemeContext';
 
 const ExperienceSection = () => {
+  const { language } = useTheme();
+  const t = translations[language];
   const [currentSlide, setCurrentSlide] = useState(0);
   const interiorImages = galleryImages.filter(img => img.category === 'interior' || img.category === 'exterior');
 
@@ -36,22 +39,22 @@ const ExperienceSection = () => {
           {/* Text Content */}
           <div className="animate-fade-in-left">
             <span className="text-amber-400 text-sm tracking-[0.3em] uppercase font-medium">
-              Our Heritage
+              {t.experience.sectionLabel}
             </span>
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-cream mt-4 mb-8">
-              {experienceContent.title}
+              {t.experience.sectionTitle}
             </h2>
             
             {/* Decorative Line */}
             <div className="w-24 h-1 bg-amber-400 mb-8" />
             
             <p className="text-cream/80 text-lg leading-relaxed mb-8">
-              {experienceContent.description}
+              {t.experience.description}
             </p>
 
             {/* Features List */}
             <ul className="space-y-4">
-              {experienceContent.features.map((feature, index) => (
+              {t.experience.features.map((feature, index) => (
                 <li key={index} className="flex items-center gap-4 text-cream/90">
                   <span className="w-2 h-2 bg-amber-400 rounded-full" />
                   <span>{feature}</span>
@@ -62,9 +65,9 @@ const ExperienceSection = () => {
             {/* Decorative Quote */}
             <div className="mt-12 p-6 border-l-4 border-amber-400 bg-white/5 rounded-r-lg">
               <p className="font-serif text-xl italic text-cream/90">
-                "Where tradition meets the mountains, and every meal becomes a memory."
+                "{t.experience.quote}"
               </p>
-              <p className="text-amber-400 mt-3 text-sm">— The Driada Family</p>
+              <p className="text-amber-400 mt-3 text-sm">{t.experience.quoteAuthor}</p>
             </div>
           </div>
 

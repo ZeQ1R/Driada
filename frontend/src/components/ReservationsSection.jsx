@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, Users, MessageSquare, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
-import { heroImages } from '../data/mock';
+import { heroImages, translations } from '../data/mock';
 import { createReservation } from '../services/api';
+import { useTheme } from '../contexts/ThemeContext';
 
 const ReservationsSection = () => {
+  const { language } = useTheme();
+  const t = translations[language];
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -51,7 +54,7 @@ const ReservationsSection = () => {
         });
       }, 5000);
     } catch (err) {
-      setError('Failed to create reservation. Please try again.');
+      setError(t.reservations.form.errorMessage);
       console.error('Reservation error:', err);
     } finally {
       setIsLoading(false);
@@ -78,14 +81,14 @@ const ReservationsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <span className="text-amber-400 text-sm tracking-[0.3em] uppercase font-medium">
-            Book Your Experience
+            {t.reservations.sectionLabel}
           </span>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-cream mt-4 mb-6">
-            Reservations
+            {t.reservations.sectionTitle}
           </h2>
           <div className="w-24 h-1 bg-amber-400 mx-auto" />
           <p className="text-cream/80 mt-6 max-w-xl mx-auto">
-            Reserve your table and prepare for an unforgettable alpine dining experience.
+            {t.reservations.subtitle}
           </p>
         </div>
 
@@ -97,21 +100,21 @@ const ReservationsSection = () => {
                 <CheckCircle className="text-white" size={40} />
               </div>
               <h3 className="font-serif text-2xl font-bold text-cream mb-3">
-                Reservation Confirmed!
+                {t.reservations.form.confirmationTitle}
               </h3>
               <p className="text-cream/80 mb-4">
-                {confirmationData?.message || "We've sent a confirmation to your email. See you soon!"}
+                {confirmationData?.message || t.reservations.form.confirmationMessage}
               </p>
               {confirmationData && (
                 <div className="bg-white/10 rounded-xl p-4 inline-block">
                   <p className="text-cream/90 text-sm">
-                    <span className="font-semibold">Confirmation ID:</span> {confirmationData.id?.slice(0, 8)}...
+                    <span className="font-semibold">{t.reservations.form.confirmationId}</span> {confirmationData.id?.slice(0, 8)}...
                   </p>
                   <p className="text-cream/90 text-sm">
-                    <span className="font-semibold">Date:</span> {confirmationData.date} at {confirmationData.time}
+                    <span className="font-semibold">{t.reservations.form.confirmationDate}</span> {confirmationData.date} at {confirmationData.time}
                   </p>
                   <p className="text-cream/90 text-sm">
-                    <span className="font-semibold">Party size:</span> {confirmationData.guests} guests
+                    <span className="font-semibold">{t.reservations.form.confirmationParty}</span> {confirmationData.guests} {t.reservations.form.guests.toLowerCase()}
                   </p>
                 </div>
               )}
@@ -128,7 +131,7 @@ const ReservationsSection = () => {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-cream/90 text-sm font-medium mb-2">
-                    Full Name *
+                    {t.reservations.form.fullName} *
                   </label>
                   <input
                     type="text"
@@ -137,12 +140,12 @@ const ReservationsSection = () => {
                     onChange={handleChange}
                     required
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-cream placeholder:text-cream/50 focus:outline-none focus:border-amber-400 transition-colors"
-                    placeholder="Your name"
+                    placeholder={t.reservations.form.placeholder.name}
                   />
                 </div>
                 <div>
                   <label className="block text-cream/90 text-sm font-medium mb-2">
-                    Email *
+                    {t.reservations.form.email} *
                   </label>
                   <input
                     type="email"
@@ -151,7 +154,7 @@ const ReservationsSection = () => {
                     onChange={handleChange}
                     required
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-cream placeholder:text-cream/50 focus:outline-none focus:border-amber-400 transition-colors"
-                    placeholder="your@email.com"
+                    placeholder={t.reservations.form.placeholder.email}
                   />
                 </div>
               </div>
@@ -159,7 +162,7 @@ const ReservationsSection = () => {
               {/* Phone */}
               <div>
                 <label className="block text-cream/90 text-sm font-medium mb-2">
-                  Phone Number
+                  {t.reservations.form.phone}
                 </label>
                 <input
                   type="tel"
@@ -167,7 +170,7 @@ const ReservationsSection = () => {
                   value={formData.phone}
                   onChange={handleChange}
                   className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-cream placeholder:text-cream/50 focus:outline-none focus:border-amber-400 transition-colors"
-                  placeholder="+1 (555) 123-4567"
+                  placeholder={t.reservations.form.placeholder.phone}
                 />
               </div>
 
@@ -176,7 +179,7 @@ const ReservationsSection = () => {
                 <div>
                   <label className="block text-cream/90 text-sm font-medium mb-2">
                     <Calendar size={16} className="inline mr-2" />
-                    Date *
+                    {t.reservations.form.date} *
                   </label>
                   <input
                     type="date"
@@ -191,7 +194,7 @@ const ReservationsSection = () => {
                 <div>
                   <label className="block text-cream/90 text-sm font-medium mb-2">
                     <Clock size={16} className="inline mr-2" />
-                    Time *
+                    {t.reservations.form.time} *
                   </label>
                   <select
                     name="time"
@@ -200,7 +203,7 @@ const ReservationsSection = () => {
                     required
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-cream focus:outline-none focus:border-amber-400 transition-colors appearance-none cursor-pointer"
                   >
-                    <option value="" className="bg-[#1a3c34]">Select time</option>
+                    <option value="" className="bg-[#1a3c34]">{t.reservations.form.selectTime}</option>
                     {timeSlots.map(slot => (
                       <option key={slot} value={slot} className="bg-[#1a3c34]">{slot}</option>
                     ))}
@@ -209,7 +212,7 @@ const ReservationsSection = () => {
                 <div>
                   <label className="block text-cream/90 text-sm font-medium mb-2">
                     <Users size={16} className="inline mr-2" />
-                    Guests *
+                    {t.reservations.form.guests} *
                   </label>
                   <select
                     name="guests"
@@ -220,10 +223,10 @@ const ReservationsSection = () => {
                   >
                     {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
                       <option key={num} value={num} className="bg-[#1a3c34]">
-                        {num} {num === 1 ? 'Guest' : 'Guests'}
+                        {num} {num === 1 ? t.reservations.form.guest : t.reservations.form.guests}
                       </option>
                     ))}
-                    <option value="9+" className="bg-[#1a3c34]">9+ (Large Party)</option>
+                    <option value="9+" className="bg-[#1a3c34]">9+ ({t.reservations.form.largParty})</option>
                   </select>
                 </div>
               </div>
@@ -232,7 +235,7 @@ const ReservationsSection = () => {
               <div>
                 <label className="block text-cream/90 text-sm font-medium mb-2">
                   <MessageSquare size={16} className="inline mr-2" />
-                  Special Requests
+                  {t.reservations.form.specialRequests}
                 </label>
                 <textarea
                   name="specialRequests"
@@ -240,7 +243,7 @@ const ReservationsSection = () => {
                   onChange={handleChange}
                   rows={4}
                   className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-cream placeholder:text-cream/50 focus:outline-none focus:border-amber-400 transition-colors resize-none"
-                  placeholder="Allergies, special occasions, seating preferences..."
+                  placeholder={t.reservations.form.placeholder.specialRequests}
                 />
               </div>
 
@@ -253,15 +256,15 @@ const ReservationsSection = () => {
                 {isLoading ? (
                   <>
                     <Loader2 className="animate-spin" size={20} />
-                    Processing...
+                    {t.reservations.form.processing}
                   </>
                 ) : (
-                  'Confirm Reservation'
+                  t.reservations.form.submitButton
                 )}
               </button>
 
               <p className="text-cream/60 text-sm text-center">
-                By reserving, you agree to our booking policy. We'll contact you to confirm.
+                {t.reservations.form.bookingPolicy}
               </p>
             </form>
           )}

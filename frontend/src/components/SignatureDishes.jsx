@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { signatureDishes as mockDishes } from '../data/mock';
+import { signatureDishes as mockDishes, translations } from '../data/mock';
 import { getSignatureDishes } from '../services/api';
+import { useTheme } from '../contexts/ThemeContext';
 
 const SignatureDishes = () => {
+  const { language } = useTheme();
+  const t = translations[language];
   const [hoveredDish, setHoveredDish] = useState(null);
   const [dishes, setDishes] = useState(mockDishes);
   const [loading, setLoading] = useState(true);
@@ -46,10 +49,10 @@ const SignatureDishes = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-amber-600 text-sm tracking-[0.3em] uppercase font-medium">
-            Culinary Excellence
+            {t.dishes.sectionLabel}
           </span>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#1a3c34] mt-4 mb-6">
-            Our Signature Dishes
+            {t.dishes.sectionTitle}
           </h2>
           <div className="w-24 h-1 bg-amber-400 mx-auto" />
         </div>

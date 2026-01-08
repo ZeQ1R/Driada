@@ -52,7 +52,7 @@ const HeroSection = () => {
           <div className="flex items-center justify-center mb-6">
             <div className="w-16 h-px bg-amber-400" />
             <span className="px-4 text-amber-400 text-sm tracking-[0.3em] uppercase font-medium">
-              Est. 1952
+              {t.hero.established}
             </span>
             <div className="w-16 h-px bg-amber-400" />
           </div>
