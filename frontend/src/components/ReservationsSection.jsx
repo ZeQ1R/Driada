@@ -81,14 +81,14 @@ const ReservationsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <span className="text-amber-400 text-sm tracking-[0.3em] uppercase font-medium">
-            Book Your Experience
+            {t.reservations.sectionLabel}
           </span>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-cream mt-4 mb-6">
-            Reservations
+            {t.reservations.sectionTitle}
           </h2>
           <div className="w-24 h-1 bg-amber-400 mx-auto" />
           <p className="text-cream/80 mt-6 max-w-xl mx-auto">
-            Reserve your table and prepare for an unforgettable alpine dining experience.
+            {t.reservations.subtitle}
           </p>
         </div>
 
