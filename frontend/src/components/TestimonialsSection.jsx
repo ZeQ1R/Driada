@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Star, Quote } from 'lucide-react';
-import { testimonials } from '../data/mock';
+import { testimonials, translations } from '../data/mock';
+import { useTheme } from '../contexts/ThemeContext';
 
 const TestimonialsSection = () => {
+  const { language } = useTheme();
+  const t = translations[language];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
