@@ -1,8 +1,11 @@
 import React from 'react';
 import { MapPin, Flame, Mountain, Eye } from 'lucide-react';
-import { locationFeatures, heroImages } from '../data/mock';
+import { locationFeatures, heroImages, translations } from '../data/mock';
+import { useTheme } from '../contexts/ThemeContext';
 
 const LocationSection = () => {
+  const { language } = useTheme();
+  const t = translations[language];
   const iconMap = {
     ski: MapPin,
     fire: Flame,
