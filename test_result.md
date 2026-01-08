@@ -166,7 +166,137 @@ backend:
         comment: "GET /api/weather endpoint working correctly - returns mock weather data with temperature, condition, snow_depth, slope_status, visibility, and wind"
 
 frontend:
-  # No frontend testing performed as per instructions
+  - task: "Multi-language Translation System"
+    implemented: true
+    working: true
+    file: "frontend/src/data/mock.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Comprehensive translations implemented for English (en), Albanian (sq), and Macedonian (mk) in mock.js. All sections translated including nav, hero, dishes, experience, menu, reservations, footer, etc."
+
+  - task: "Language Selector in Navbar"
+    implemented: true
+    working: true
+    file: "frontend/src/components/Navbar.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Updated language selector to show English, Shqip (Albanian), and Македонски (Macedonian). Language switching working perfectly."
+
+  - task: "Hero Section Translation"
+    implemented: true
+    working: true
+    file: "frontend/src/components/HeroSection.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Hero section fully translates title, subtitle, and 'Est. 1952' text across all three languages."
+
+  - task: "Signature Dishes Section Translation"
+    implemented: true
+    working: true
+    file: "frontend/src/components/SignatureDishes.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Section labels 'Culinary Excellence' and 'Our Signature Dishes' translate properly in all languages."
+
+  - task: "Experience Section Translation"
+    implemented: true
+    working: true
+    file: "frontend/src/components/ExperienceSection.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Complete translation of heritage section including title, description, features list, and quote in all three languages."
+
+  - task: "Reservations Section Translation"
+    implemented: true
+    working: true
+    file: "frontend/src/components/ReservationsSection.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Full reservation form translation including all labels (Full Name, Email, Phone, Date, Time, Guests, Special Requests), placeholders, buttons, confirmation messages, and error messages."
+
+  - task: "Footer Translation"
+    implemented: true
+    working: true
+    file: "frontend/src/components/Footer.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Footer sections translated including 'Contact Us', 'Opening Hours', 'Quick Links', copyright, and policy links."
+
+  - task: "Menu Section Translation"
+    implemented: true
+    working: true
+    file: "frontend/src/components/SeasonalMenu.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Seasonal menu section labels translated properly."
+
+  - task: "Location Section Translation"
+    implemented: true
+    working: true
+    file: "frontend/src/components/LocationSection.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Location section title and labels translated."
+
+  - task: "Gallery Section Translation"
+    implemented: true
+    working: true
+    file: "frontend/src/components/GallerySection.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Gallery section headers translated."
+
+  - task: "Testimonials Section Translation"
+    implemented: true
+    working: true
+    file: "frontend/src/components/TestimonialsSection.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Testimonials section labels translated."
 
 metadata:
   created_by: "testing_agent"
