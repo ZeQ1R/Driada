@@ -54,7 +54,7 @@ const ReservationsSection = () => {
         });
       }, 5000);
     } catch (err) {
-      setError('Failed to create reservation. Please try again.');
+      setError(t.reservations.form.errorMessage);
       console.error('Reservation error:', err);
     } finally {
       setIsLoading(false);
