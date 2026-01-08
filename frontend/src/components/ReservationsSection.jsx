@@ -179,7 +179,7 @@ const ReservationsSection = () => {
                 <div>
                   <label className="block text-cream/90 text-sm font-medium mb-2">
                     <Calendar size={16} className="inline mr-2" />
-                    Date *
+                    {t.reservations.form.date} *
                   </label>
                   <input
                     type="date"
@@ -194,7 +194,7 @@ const ReservationsSection = () => {
                 <div>
                   <label className="block text-cream/90 text-sm font-medium mb-2">
                     <Clock size={16} className="inline mr-2" />
-                    Time *
+                    {t.reservations.form.time} *
                   </label>
                   <select
                     name="time"
@@ -203,7 +203,7 @@ const ReservationsSection = () => {
                     required
                     className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-cream focus:outline-none focus:border-amber-400 transition-colors appearance-none cursor-pointer"
                   >
-                    <option value="" className="bg-[#1a3c34]">Select time</option>
+                    <option value="" className="bg-[#1a3c34]">{t.reservations.form.selectTime}</option>
                     {timeSlots.map(slot => (
                       <option key={slot} value={slot} className="bg-[#1a3c34]">{slot}</option>
                     ))}
@@ -212,7 +212,7 @@ const ReservationsSection = () => {
                 <div>
                   <label className="block text-cream/90 text-sm font-medium mb-2">
                     <Users size={16} className="inline mr-2" />
-                    Guests *
+                    {t.reservations.form.guests} *
                   </label>
                   <select
                     name="guests"
@@ -223,10 +223,10 @@ const ReservationsSection = () => {
                   >
                     {[1, 2, 3, 4, 5, 6, 7, 8].map(num => (
                       <option key={num} value={num} className="bg-[#1a3c34]">
-                        {num} {num === 1 ? 'Guest' : 'Guests'}
+                        {num} {num === 1 ? t.reservations.form.guest : t.reservations.form.guests}
                       </option>
                     ))}
-                    <option value="9+" className="bg-[#1a3c34]">9+ (Large Party)</option>
+                    <option value="9+" className="bg-[#1a3c34]">9+ ({t.reservations.form.largParty})</option>
                   </select>
                 </div>
               </div>
@@ -235,7 +235,7 @@ const ReservationsSection = () => {
               <div>
                 <label className="block text-cream/90 text-sm font-medium mb-2">
                   <MessageSquare size={16} className="inline mr-2" />
-                  Special Requests
+                  {t.reservations.form.specialRequests}
                 </label>
                 <textarea
                   name="specialRequests"
@@ -243,7 +243,7 @@ const ReservationsSection = () => {
                   onChange={handleChange}
                   rows={4}
                   className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-cream placeholder:text-cream/50 focus:outline-none focus:border-amber-400 transition-colors resize-none"
-                  placeholder="Allergies, special occasions, seating preferences..."
+                  placeholder={t.reservations.form.placeholder.specialRequests}
                 />
               </div>
 
@@ -256,15 +256,15 @@ const ReservationsSection = () => {
                 {isLoading ? (
                   <>
                     <Loader2 className="animate-spin" size={20} />
-                    Processing...
+                    {t.reservations.form.processing}
                   </>
                 ) : (
-                  'Confirm Reservation'
+                  t.reservations.form.submitButton
                 )}
               </button>
 
               <p className="text-cream/60 text-sm text-center">
-                By reserving, you agree to our booking policy. We'll contact you to confirm.
+                {t.reservations.form.bookingPolicy}
               </p>
             </form>
           )}
