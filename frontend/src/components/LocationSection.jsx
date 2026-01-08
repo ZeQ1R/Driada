@@ -27,10 +27,10 @@ const LocationSection = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <span className="text-amber-400 text-sm tracking-[0.3em] uppercase font-medium">
-            Find Us
+            {t.location.sectionLabel}
           </span>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-cream mt-4 mb-6">
-            Location & Atmosphere
+            {t.location.sectionTitle}
           </h2>
           <div className="w-24 h-1 bg-amber-400 mx-auto" />
         </div>
