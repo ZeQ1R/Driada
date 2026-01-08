@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Calendar, Clock, Users, MessageSquare, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
-import { heroImages } from '../data/mock';
+import { heroImages, translations } from '../data/mock';
 import { createReservation } from '../services/api';
+import { useTheme } from '../contexts/ThemeContext';
 
 const ReservationsSection = () => {
+  const { language } = useTheme();
+  const t = translations[language];
   const [formData, setFormData] = useState({
     name: '',
     email: '',
