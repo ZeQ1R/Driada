@@ -100,21 +100,21 @@ const ReservationsSection = () => {
                 <CheckCircle className="text-white" size={40} />
               </div>
               <h3 className="font-serif text-2xl font-bold text-cream mb-3">
-                Reservation Confirmed!
+                {t.reservations.form.confirmationTitle}
               </h3>
               <p className="text-cream/80 mb-4">
-                {confirmationData?.message || "We've sent a confirmation to your email. See you soon!"}
+                {confirmationData?.message || t.reservations.form.confirmationMessage}
               </p>
               {confirmationData && (
                 <div className="bg-white/10 rounded-xl p-4 inline-block">
                   <p className="text-cream/90 text-sm">
-                    <span className="font-semibold">Confirmation ID:</span> {confirmationData.id?.slice(0, 8)}...
+                    <span className="font-semibold">{t.reservations.form.confirmationId}</span> {confirmationData.id?.slice(0, 8)}...
                   </p>
                   <p className="text-cream/90 text-sm">
-                    <span className="font-semibold">Date:</span> {confirmationData.date} at {confirmationData.time}
+                    <span className="font-semibold">{t.reservations.form.confirmationDate}</span> {confirmationData.date} at {confirmationData.time}
                   </p>
                   <p className="text-cream/90 text-sm">
-                    <span className="font-semibold">Party size:</span> {confirmationData.guests} guests
+                    <span className="font-semibold">{t.reservations.form.confirmationParty}</span> {confirmationData.guests} {t.reservations.form.guests.toLowerCase()}
                   </p>
                 </div>
               )}
