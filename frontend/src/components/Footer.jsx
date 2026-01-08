@@ -49,7 +49,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-cream font-bold text-lg mb-6">Contact Us</h4>
+            <h4 className="text-cream font-bold text-lg mb-6">{t.footer.contactUs}</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-cream/70">
                 <MapPin className="text-amber-400 flex-shrink-0 mt-1" size={18} />
