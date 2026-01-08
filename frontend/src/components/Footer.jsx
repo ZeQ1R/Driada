@@ -1,8 +1,11 @@
 import React from 'react';
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Twitter } from 'lucide-react';
-import { restaurantInfo } from '../data/mock';
+import { restaurantInfo, translations } from '../data/mock';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Footer = () => {
+  const { language } = useTheme();
+  const t = translations[language];
   const currentYear = new Date().getFullYear();
 
   return (
