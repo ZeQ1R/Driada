@@ -19,8 +19,7 @@ const Footer = () => {
               DRIADA
             </h3>
             <p className="text-cream/70 leading-relaxed mb-6">
-              An authentic mountain dining experience where tradition meets the peaks. 
-              Serving generations of alpine recipes since 1952.
+              {t.footer.description}
             </p>
             {/* Social Links */}
             <div className="flex gap-4">
