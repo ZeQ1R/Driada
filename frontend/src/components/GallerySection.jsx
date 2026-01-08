@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
-import { galleryImages } from '../data/mock';
+import { galleryImages, translations } from '../data/mock';
+import { useTheme } from '../contexts/ThemeContext';
 
 const GallerySection = () => {
+  const { language } = useTheme();
+  const t = translations[language];
   const [selectedImage, setSelectedImage] = useState(null);
 
   const openLightbox = (image) => {
