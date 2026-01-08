@@ -37,10 +37,10 @@ const TestimonialsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="text-amber-600 text-sm tracking-[0.3em] uppercase font-medium">
-            Guest Stories
+            {t.testimonials.sectionLabel}
           </span>
           <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-[#1a3c34] mt-4 mb-6">
-            What Our Guests Say
+            {t.testimonials.sectionTitle}
           </h2>
           <div className="w-24 h-1 bg-amber-400 mx-auto" />
         </div>
