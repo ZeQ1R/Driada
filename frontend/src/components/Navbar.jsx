@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Globe, Volume2, VolumeX, Sun, Snowflake } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { navigation, translations } from '../data/mock';
+import logo from '../images/driada-removebg-preview.png';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -51,10 +52,13 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#home" className="flex items-center space-x-2 group">
+            <img src={logo} alt="Driada Logo" className='w-[140px] h-[140px]' />
+          </a>
+          {/* <a href="#home" className="flex items-center space-x-2 group">
             <span className="font-serif text-2xl md:text-3xl font-bold text-cream tracking-wider">
               DRIADA
             </span>
-          </a>
+          </a> */}
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
@@ -113,13 +117,13 @@ const Navbar = () => {
             </button>
 
             {/* Sound Toggle */}
-            <button
+            {/* <button
               onClick={toggleSound}
               className="p-2 text-cream/80 hover:text-cream transition-colors rounded-full hover:bg-white/10"
               aria-label="Toggle ambient sound"
             >
               {soundEnabled ? <Volume2 size={20} /> : <VolumeX size={20} />}
-            </button>
+            </button> */}
 
             {/* Reserve Button */}
             <button
@@ -141,8 +145,30 @@ const Navbar = () => {
         </div>
       </div>
 
+
       {/* Mobile Menu */}
-      <div className={`lg:hidden absolute top-full left-0 right-0 bg-[#1a3c34]/98 backdrop-blur-md transition-all duration-500 overflow-hidden ${
+        <div className={`lg:hidden absolute top-full left-0 right-0 bg-[#1a3c34] transition-all duration-500 overflow-hidden ${
+          isMobileMenuOpen ? 'max-h-96 border-t border-cream/10' : 'max-h-0'
+        }`}>
+          <div className="px-6 py-4 space-y-3">
+            {navItems.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => scrollToSection(item.href)}
+                className="block w-full text-left text-cream/90 hover:text-cream py-2 font-medium transition-colors"
+              >
+                {item.name}
+              </button>
+            ))}
+            <button
+              onClick={() => scrollToSection('#reservations')}
+              className="w-full bg-amber-400 hover:bg-amber-500 text-[#1a3c34] font-semibold px-5 py-3 rounded-full transition-all duration-300 mt-4"
+            >
+              {t.cta.reserveTable}
+            </button>
+          </div>
+        </div>
+      {/* <div className={`lg:hidden absolute top-full left-0 right-0 bg-[#1a3c34]/98 backdrop-blur-md transition-all duration-500 overflow-hidden ${
         isMobileMenuOpen ? 'max-h-96 border-t border-cream/10' : 'max-h-0'
       }`}>
         <div className="px-6 py-4 space-y-3">
@@ -162,7 +188,7 @@ const Navbar = () => {
             {t.cta.reserveTable}
           </button>
         </div>
-      </div>
+      </div> */}
     </nav>
   );
 };

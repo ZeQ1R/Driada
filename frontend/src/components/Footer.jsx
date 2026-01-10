@@ -24,26 +24,28 @@ const Footer = () => {
             {/* Social Links */}
             <div className="flex gap-4">
               <a 
-                href="#" 
+                href="https://www.instagram.com/driada.restaurant/" 
                 className="w-10 h-10 bg-white/10 hover:bg-amber-400 rounded-full flex items-center justify-center text-cream hover:text-[#1a3c34] transition-all duration-300"
                 aria-label="Instagram"
+                target="_blank" rel="noopener noreferrer  "
               >
                 <Instagram size={18} />
               </a>
               <a 
-                href="#" 
+                href="https://www.facebook.com/DriadaRestaurant/" 
                 className="w-10 h-10 bg-white/10 hover:bg-amber-400 rounded-full flex items-center justify-center text-cream hover:text-[#1a3c34] transition-all duration-300"
                 aria-label="Facebook"
+                target="_blank" rel="noopener noreferrer  "
               >
                 <Facebook size={18} />
               </a>
-              <a 
+              {/* <a 
                 href="#" 
                 className="w-10 h-10 bg-white/10 hover:bg-amber-400 rounded-full flex items-center justify-center text-cream hover:text-[#1a3c34] transition-all duration-300"
                 aria-label="Twitter"
               >
                 <Twitter size={18} />
-              </a>
+              </a> */}
             </div>
           </div>
 
@@ -122,12 +124,18 @@ const Footer = () => {
             </p>
             <div className="flex gap-6">
               <a href="#" className="text-cream/50 hover:text-cream text-sm transition-colors">
+                Produced by Zeqir Xheladini
+              </a>
+              
+            </div>
+            {/* <div className="flex gap-6">
+              <a href="#" className="text-cream/50 hover:text-cream text-sm transition-colors">
                 {t.footer.privacy}
               </a>
               <a href="#" className="text-cream/50 hover:text-cream text-sm transition-colors">
                 {t.footer.terms}
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
