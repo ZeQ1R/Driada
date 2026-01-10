@@ -44,13 +44,13 @@ const CTASection = () => {
         </p>
 
         {/* CTA Button */}
-        <button
+        {/* <button
           onClick={scrollToReservations}
           className="group bg-cream hover:bg-white text-[#1a3c34] font-bold px-10 py-5 rounded-full text-lg transition-all duration-300 hover:shadow-2xl hover:shadow-cream/30 hover:scale-105"
         >
           {t.cta.reserveTable}
           <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
-        </button>
+        </button> */}
 
         {/* Decorative Line */}
         <div className="flex items-center justify-center mt-12">

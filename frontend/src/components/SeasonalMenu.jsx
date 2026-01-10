@@ -115,12 +115,12 @@ const SeasonalMenu = () => {
           </div>
 
           {/* Download Menu Button */}
-          <div className="mt-10 text-center">
+          {/* <div className="mt-10 text-center">
             <button className="inline-flex items-center gap-3 bg-[#1a3c34] hover:bg-[#2d5a4a] text-cream font-semibold px-8 py-4 rounded-full transition-all duration-300 hover:shadow-lg">
               <Download size={20} />
               Download Full Menu (PDF)
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

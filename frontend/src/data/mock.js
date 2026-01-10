@@ -4,9 +4,9 @@ export const restaurantInfo = {
   name: "DRIADA",
   tagline: "Tradition at the Peak of Taste",
   subtitle: "An authentic mountain dining experience near the slopes.",
-  address: "Alpine Valley Road 42, Near Ski Resort",
-  phone: "+1 (555) 123-4567",
-  email: "reservations@driada.com",
+  address: "Gajre, Tetovo, 1200, North Macedonia",
+  phone: "070 888 800",
+  email: "restaurant.driada@gmail.com",
   hours: {
     weekdays: "12:00 PM - 10:00 PM",
     weekends: "11:00 AM - 11:00 PM"

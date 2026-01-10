@@ -126,12 +126,12 @@ const Navbar = () => {
             </button> */}
 
             {/* Reserve Button */}
-            <button
+            {/* <button
               onClick={() => scrollToSection('#reservations')}
               className="hidden md:block bg-amber-400 hover:bg-amber-500 text-[#1a3c34] font-semibold px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-amber-400/30 text-sm"
             >
               {t.cta.reserveTable}
-            </button>
+            </button> */}
 
             {/* Mobile Menu Button */}
             <button

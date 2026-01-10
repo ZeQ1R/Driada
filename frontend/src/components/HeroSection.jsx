@@ -76,13 +76,13 @@ const HeroSection = () => {
               {t.cta.viewMenu}
               <ChevronDown className="group-hover:translate-y-1 transition-transform" size={18} />
             </button>
-            <button
+            {/* <button
               onClick={() => scrollToSection('#reservations')}
               className="group border-2 border-cream/80 hover:border-cream text-cream hover:bg-cream/10 font-semibold px-8 py-4 rounded-full transition-all duration-300 flex items-center gap-2"
             >
               {t.cta.reserveNow}
               <Play className="group-hover:scale-110 transition-transform" size={18} />
-            </button>
+            </button> */}
           </div>
         </div>
 

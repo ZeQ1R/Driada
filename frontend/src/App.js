@@ -66,7 +66,7 @@ const AppContent = () => {
         <SeasonalMenu />
         <LocationSection />
         <GallerySection />
-        <ReservationsSection />
+        {/* <ReservationsSection /> */}
         <TestimonialsSection />
         <CTASection />
       </main>

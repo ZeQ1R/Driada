@@ -63,7 +63,7 @@ const LocationSection = () => {
             <h3 className="font-serif text-2xl font-bold text-cream">Visit Us</h3>
           </div>
           <p className="text-cream/80 text-center text-lg">
-            Alpine Valley Road 42, Near Ski Resort<br />
+            Gajre, Tetovo 1200<br />
             Open daily from 12:00 PM
           </p>
         </div>

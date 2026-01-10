@@ -55,16 +55,38 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-cream/70">
                 <MapPin className="text-amber-400 flex-shrink-0 mt-1" size={18} />
+                <a href="https://www.google.com/maps/place/Driada+Restaurant/@42.0184236,20.9332861,17z/data=!3m1!4b1!4m6!3m5!1s0x1353f044ffdda1a9:0x410b0fc15377b944!8m2!3d42.0184196!4d20.935861!16s%2Fg%2F11df0mnzsb?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoKLDEwMDc5MjA3M0gBUAM%3D" target='_blank'>
                 <span>{restaurantInfo.address}</span>
+                </a>
               </li>
-              <li className="flex items-center gap-3 text-cream/70">
+              <li className="flex items-center gap-3 text-cream/70 hover:text-cream transition">
+                <a
+                  href={`tel:${restaurantInfo.phone}`}
+                  className="flex items-center gap-3"
+                >
+                  <Phone className="text-amber-400" size={18} />
+                  <span>{restaurantInfo.phone}</span>
+                </a>
+              </li>
+
+              <li className="flex items-center gap-3 text-cream/70 hover:text-cream transition">
+                <a
+                  href={`mailto:${restaurantInfo.email}`}
+                  className="flex items-center gap-3"
+                >
+                  <Mail className="text-amber-400" size={18} />
+                  <span>{restaurantInfo.email}</span>
+                </a>
+              </li>
+
+              {/* <li className="flex items-center gap-3 text-cream/70">
                 <Phone className="text-amber-400" size={18} />
                 <span>{restaurantInfo.phone}</span>
               </li>
               <li className="flex items-center gap-3 text-cream/70">
                 <Mail className="text-amber-400" size={18} />
                 <span>{restaurantInfo.email}</span>
-              </li>
+              </li> */}
             </ul>
           </div>
 
