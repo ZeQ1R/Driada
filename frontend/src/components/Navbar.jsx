@@ -24,7 +24,7 @@ const Navbar = () => {
     { name: t.nav.menu, href: '#menu' },
     { name: t.nav.story, href: '#story' },
     { name: t.nav.gallery, href: '#gallery' },
-    { name: t.nav.reservations, href: '#reservations' },
+    // { name: t.nav.reservations, href: '#reservations' },
     { name: t.nav.contact, href: '#contact' }
   ];
 
