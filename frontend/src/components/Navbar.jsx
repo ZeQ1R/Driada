@@ -21,8 +21,8 @@ const Navbar = () => {
   const t = translations[language];
   const navItems = [
     { name: t.nav.home, href: '#home' },
-    { name: t.nav.menu, href: '#menu' },
     { name: t.nav.story, href: '#story' },
+    { name: t.nav.menu, href: '#menu' },
     { name: t.nav.gallery, href: '#gallery' },
     // { name: t.nav.reservations, href: '#reservations' },
     { name: t.nav.contact, href: '#contact' }
@@ -160,12 +160,12 @@ const Navbar = () => {
                 {item.name}
               </button>
             ))}
-            <button
+            {/* <button
               onClick={() => scrollToSection('#reservations')}
               className="w-full bg-amber-400 hover:bg-amber-500 text-[#1a3c34] font-semibold px-5 py-3 rounded-full transition-all duration-300 mt-4"
             >
               {t.cta.reserveTable}
-            </button>
+            </button> */}
           </div>
         </div>
       {/* <div className={`lg:hidden absolute top-full left-0 right-0 bg-[#1a3c34]/98 backdrop-blur-md transition-all duration-500 overflow-hidden ${
